@@ -6,7 +6,10 @@ import '../../node_modules/react-bootstrap-table/css/react-bootstrap-table.css'
  
  
 class Table extends Component {
+
+    
   render() {
+    //   debugger;
     return (
       <div>
         <BootstrapTable data={this.props.data}>

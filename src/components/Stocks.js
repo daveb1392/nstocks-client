@@ -20,7 +20,7 @@ class Stock extends React.Component {
   ];
 
   render() {
-    debugger;
+    // debugger;
     return (
       <div>
         {/* <div

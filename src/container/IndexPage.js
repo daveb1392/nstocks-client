@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import MainContainer from "./MainContainer";
-
+import { TVChartContainer } from "../components/TVChartContainer/index";
 
 
 class IndexPage extends Component {
@@ -9,14 +9,18 @@ class IndexPage extends Component {
     // debugger
     return (
       <div>
-       
         {this.props.user && !this.props.user.error ? (
           <>
-          once logge in shows:
+            once logge in shows:
             <MainContainer />
+            <TVChartContainer />
           </>
         ) : (
-          <>previous to logging in.</>
+          <>
+            previous to logging in.
+            {/* <MainContainer /> */}
+            {/* <TVChartContainer /> */}
+          </>
         )}
       </div>
     );
