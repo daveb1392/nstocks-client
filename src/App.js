@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import API from "./adapters/API.js";
-import IndexPage from "./components/IndexPage";
+import IndexPage from "./container/IndexPage";
 import SignupForm from "./components/SignupForm.js";
 import Login from "./components/Login.js";
 
@@ -62,7 +62,7 @@ class App extends React.Component {
             <SignupForm {...props} handleSubmit={this.signUp} />
           )}
         />
-        />
+      
       </div>
     );
   }

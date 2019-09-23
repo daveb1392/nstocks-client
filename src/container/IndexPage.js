@@ -1,7 +1,7 @@
 import React, { Component } from "react";
+import MainContainer from "./MainContainer";
 
 
-// const starsignsURL = "http://localhost:3000/starsigns"
 
 class IndexPage extends Component {
 
@@ -9,15 +9,14 @@ class IndexPage extends Component {
     // debugger
     return (
       <div>
+       
         {this.props.user && !this.props.user.error ? (
           <>
-            once logged in 
-            
+          once logge in shows:
+            <MainContainer />
           </>
         ) : (
-          <>
-            previous to logging in. 
-          </>
+          <>previous to logging in.</>
         )}
       </div>
     );

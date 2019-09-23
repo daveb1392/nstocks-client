@@ -18,7 +18,7 @@ const Navbar = ({ user, signUp, logIn, logOut }) => {
             floated="left"
             horizontal
             as="h4"
-          >{` Logged in as ${user.username}`}</Header>
+          >{` Logged in as ${user.email}`}</Header>
           <Button onClick={logOut} floated="right">
             <Button.Content>Log out</Button.Content>
           </Button>
