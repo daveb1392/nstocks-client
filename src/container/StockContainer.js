@@ -3,7 +3,7 @@ import Stocks from "../components/Stocks";
 
 class StockContainer extends Component {
   render() {
-    // debugger;
+    debugger;
     return (  
     
       <div>

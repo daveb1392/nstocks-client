@@ -1,17 +1,12 @@
 import React, { Component } from "react";
 import StockContainer from "./StockContainer";
-// import PortfolioContainer from "./PortfolioContainer";
-// import SearchBar from "../components/SearchBar";
+import Charts from "./Charts";
 
 const URL = " http://localhost:3000/stocks";
 
 class MainContainer extends Component {
   state = {
-    stocks: [],
-    portfolio: [],
-    sortValue: "",
-    filterType: "",
-    searchTerm: ""
+    stocks: []
   };
 
   fetchStocks = () => {
@@ -25,8 +20,12 @@ class MainContainer extends Component {
   };
 
   componentDidMount() {
-    this.fetchStocks();
+    this.fetchStocks()
   }
+
+  // componentWillUnmount() {
+  //   clearInterval(this.interval);
+  // }
 
   addStocks = stock => {
     if (!this.state.portfolio.includes(stock)) {
@@ -44,73 +43,6 @@ class MainContainer extends Component {
     });
   };
 
-  handleSearch = event => {
-    this.setState({
-      searchTerm: event.target.value
-    });
-  };
-
-  // handleChange = event => {
-  //   this.setState({
-  //     [event.target.name]: event.target.value
-  //   })
-  // }
-
-  handleSort = event => {
-    this.setState({
-      sortValue: event.target.value
-    });
-  };
-
-  handleFilter = event => {
-    this.setState({
-      filterType: event.target.value
-    });
-  };
-
-  // sortAndFilterStocks = () => {
-  // //   if(this.state.sortValue === "Alphabetically"){
-  // //     return this.state.stocks.sort((a, b) => a.name.localeCompare(b.name))
-  // //   } else if (this.state.sortValue === "Price"){
-  // //     return this.state.stocks.sort((a, b) => a.price - b.price)
-  // //   } else if (this.state.filterType){
-  // //     return this.state.stocks.filter(stock => stock.type === this.state.filterType)
-  // //   } else if( this.state.searchTerm){
-  // //     return this.state.stocks.filter(stock => stock.name.toLocaleLowerCase().includes(this.state.searchTerm.toLocaleLowerCase())  )
-
-  // //   }
-  // //   else {
-  // //     return this.state.stocks
-  // //   }
-  // // };
-
-  sortAndFilterStocks = () => {
-    return this.sortStocks(this.filterStocks());
-  };
-
-  filterStocks = () => {
-    if (this.state.filterType === "") {
-      return this.state.stocks;
-    } else {
-      return this.state.stocks.filter(
-        stock => stock.type === this.state.filterType
-      );
-    }
-  };
-
-  sortStocks = filterStockArray => {
-    switch (this.state.sortValue) {
-      case "Alphabetically":
-        return filterStockArray.sort((a, b) => a.name.localeCompare(b.name));
-
-      case "Price":
-        return filterStockArray.sort((a, b) => a.price - b.price);
-
-      default:
-        return filterStockArray;
-    }
-  };
-
   render() {
     return (
       <div>
@@ -126,16 +58,14 @@ class MainContainer extends Component {
         <div className="row">
           <div className="col-8">
             <StockContainer
-              stocks={this.sortAndFilterStocks()}
+              stocks={this.state.stocks}
               addStocks={this.addStocks}
             />
           </div>
-          {/* <div className="col-4"> */}
-            {/* <PortfolioContainer
-              stocks={this.state.portfolio}
-              removeStock={this.removeStock} */}
-            
-          {/* </div> */}
+          {/* <div className="col-4"> 
+           <Charts stock= />
+
+          </div>  */}
         </div>
       </div>
     );

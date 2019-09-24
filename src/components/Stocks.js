@@ -23,54 +23,29 @@ class Stock extends React.Component {
     // debugger;
     return (
       <div>
-        {/* <div
+        <div
           className="card"
           onClick={() => this.props.stockAction(this.props.stock)}
         >
           <div className="card-body">
             <h5 className="card-title">
-              {this.props.stock["Global Quote"]["01. symbol"]}
+              Symbol :{this.props.stock["Global Quote"]["01. symbol"]}
             </h5>
             <p className="card-text">
-              {this.props.stock["Global Quote"]["05. price"]}
+              Current price :{this.props.stock["Global Quote"]["05. price"]}
             </p>
-          </div> */}
-          <div className="App">
-            {/* <p className="Table-header"></p> */}
-            <Table data={this.data} />
+            <p className="card-text">
+              Change :{this.props.stock["Global Quote"]["09. change"]}
+            </p>
           </div>
+          {/* <div className="App">
+            {/* <p className="Table-header"></p> */}
+          {/* <Table data={this.data} /> */}
         </div>
+      </div>
       // </div>
     );
   }
 }
 export default Stock;
 
-// import React, { Component } from 'react';
-// import {BootstrapTable, 
-//        TableHeaderColumn} from 'react-bootstrap-table';
-// import '../css/Table.css';
-// import '../../node_modules/react-bootstrap-table/css/react-bootstrap-table.css'
- 
- 
-// class Table1 extends Component {
-//   render() {
-//     return (
-//       <div>
-//         <BootstrapTable data={this.props.data}>
-//           <TableHeaderColumn isKey dataField='id'>
-//             ID
-//           </TableHeaderColumn>
-//           <TableHeaderColumn dataField='name'>
-//             Name
-//           </TableHeaderColumn>
-//           <TableHeaderColumn dataField='value'>
-//             Value
-//           </TableHeaderColumn>
-//         </BootstrapTable>
-//       </div>
-//     );
-//   }
-// }
- 
-// export default Table1;
