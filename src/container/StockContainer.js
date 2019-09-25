@@ -9,7 +9,7 @@ class StockContainer extends Component {
       <div>
         <h2>Stocks</h2>
         {this.props.stocks.map(stock => (
-         <Stocks stock={stock} stockAction={this.props.chartStocks} />
+         <Stocks stock={stock} handleChart={this.props.handleChart} />
          
           // <Stocks stock={stock} stockAction={this.props.addStocks} />
         ))}

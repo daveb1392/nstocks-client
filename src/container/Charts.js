@@ -15,8 +15,11 @@ class Chart extends React.Component {
     };
   
 
-  componentDidMount() {
-    this.fetchStock();
+  componentDidUpdate(prevProps) {
+
+    if(this.props.selectedStockId !== prevProps.selectedStockId){
+    return this.fetchStock();
+    }
   }
 
   
@@ -26,7 +29,7 @@ class Chart extends React.Component {
     console.log(pointerToThis);
     const API_KEY = "V888PZNUNWFPPYH7";
     
-    let API_Call = `https://www.alphavantage.co/query?interval=5min&function=TIME_SERIES_INTRADAY&symbol=${StockSymbol}&apikey=${API_KEY}`;
+    let API_Call = `https://www.alphavantage.co/query?interval=5min&function=TIME_SERIES_INTRADAY&symbol=${this.props.selectedStockId}&apikey=${API_KEY}`;
     let stockChartXValuesFunction = [];
     let stockChartYValuesFunction = [];
 
@@ -55,18 +58,18 @@ class Chart extends React.Component {
   render() {
     return (
       <div>
-        <h1>One stock</h1>
+        <h1>Trend</h1>
         <Plot
           data={[
             {
-              x: this.props.stockChartXValues,
-              y: this.props.stockChartYValues,
+              x: this.state.stockChartXValues,
+              y: this.state.stockChartYValues,
               type: "scatter",
               mode: "lines+markers",
               marker: { color: "red" }
             }
           ]}
-          layout={{ width: 720, height: 440, title: "" }}
+          layout={{ width: 750, height: 650, title: this.props.selectedStockId }}
         />
       </div>
     );

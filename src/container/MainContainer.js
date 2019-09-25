@@ -10,6 +10,7 @@ const URL = " http://localhost:3000/stocks";
 class MainContainer extends Component {
   state = {
     stocks: [],
+    selected_stock_id: null
     // stockChartXValues: [],
     // stockChartYValues: []
   };
@@ -32,46 +33,19 @@ class MainContainer extends Component {
   //   clearInterval(this.interval);
   // }
 
-  chartStocks = stock => {
-    
-    // if (!this.state.portfolio.includes(stock)) {
-    //   this.setState({
-    //     portfolio: [...this.state.portfolio, stock]
-    //   });
-    // }
-//     let API_Call = `https://www.alphavantage.co/query?interval=5min&function=TIME_SERIES_INTRADAY&symbol=${stock.id}&apikey=${API_KEY}`;
-//     let stockChartXValuesFunction = [];
-//     let stockChartYValuesFunction = [];
-
-//     fetch(API_Call)
-//       .then(function(response) {
-//         return response.json();
-//       })
-//       .then(function(data) {
-//         console.log(data);
-// debugger;
-//         for (let key in data["Time Series (5min)"]) {
-//           stockChartXValuesFunction.push(key);
-//           stockChartYValuesFunction.push(
-//             data["Time Series (5min)"][key]["1. open"]
-//           );
-//         }
-
-//         // console.log(stockChartXValuesFunction);
-//         this.setState({
-//           stockChartXValues: stockChartXValuesFunction,
-//           stockChartYValues: stockChartYValuesFunction
-//         });
-//       });
-  };
-
-  removeStock = stock => {
+  handleChart = (stockId) => { 
     this.setState({
-      portfolio: this.state.portfolio.filter(
-        sellStock => sellStock.id !== stock.id
-      )
-    });
+      selected_stock_id: stockId
+    }) 
   };
+
+  // removeStock = stock => {
+  //   this.setState({
+  //     portfolio: this.state.portfolio.filter(
+  //       sellStock => sellStock.id !== stock.id
+  //     )
+  //   });
+  // };
 
   render() {
     return (
@@ -89,13 +63,12 @@ class MainContainer extends Component {
           <div className="col-4">
             <StockContainer
               stocks={this.state.stocks}
-              chartStocks={this.chartStocks}
+              handleChart={this.handleChart}
             />
           </div>
           <div className="col-4">
             <Charts
-              stockChartXValues={this.state.stockChartXValues}
-              stockChartYValues={this.state.stockChartYValues}
+              selectedStockId={this.state.selected_stock_id}
               
             />
           </div>

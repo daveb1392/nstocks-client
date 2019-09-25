@@ -26,7 +26,7 @@ class Stock extends React.Component {
       <div>
         <div
           className="card"
-          onClick={() => <Charts stock={this.props.stock} />}
+          onClick={() => this.props.handleChart(this.props.stock.id)}
         >
           <div className="card-body">
             <h5 className="card-title">
