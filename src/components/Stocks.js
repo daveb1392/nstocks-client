@@ -1,4 +1,5 @@
 import React from "react";
+import Charts from "../container/Charts"
 import Table from "./Table";
 
 
@@ -11,13 +12,13 @@ class Stock extends React.Component {
     stock: []
   };
 
-  data = [
-    {
-      id: this.props.stock["Global Quote"]["01. symbol"],
-      name: this.props.stock["Global Quote"]["05. price"],
-      value: this.props.stock["Global Quote"]["09. change"]
-    }
-  ];
+  // data = [
+  //   {
+  //     id: this.props.stock["Global Quote"]["01. symbol"],
+  //     name: this.props.stock["Global Quote"]["05. price"],
+  //     value: this.props.stock["Global Quote"]["09. change"]
+  //   }
+  // ];
 
   render() {
     // debugger;
@@ -25,17 +26,17 @@ class Stock extends React.Component {
       <div>
         <div
           className="card"
-          onClick={() => this.props.stockAction(this.props.stock)}
+          onClick={() => <Charts stock={this.props.stock} />}
         >
           <div className="card-body">
             <h5 className="card-title">
-              Symbol :{this.props.stock["Global Quote"]["01. symbol"]}
+              Symbol :{this.props.stock.id}
             </h5>
             <p className="card-text">
-              Current price :{this.props.stock["Global Quote"]["05. price"]}
+              Current price :{this.props.stock.price}
             </p>
             <p className="card-text">
-              Change :{this.props.stock["Global Quote"]["09. change"]}
+              Change :{this.props.stock.change_pc}
             </p>
           </div>
           {/* <div className="App">
