@@ -6,13 +6,14 @@ import NewsContainer from "./NewsContainer"
  const API_KEY = "V888PZNUNWFPPYH7";
 
 
-
+const ApiCall = "https://newsapi.org/v2/top-headlines?country=us&apiKey=824367279b4c41d59cb038805085de31&category=business";
 const URL = " http://localhost:3000/stocks";
 
 class MainContainer extends Component {
   state = {
     stocks: [],
-    selected_stock_id: null
+    selected_stock_id: null,
+    news: []
     // stockChartXValues: [],
     // stockChartYValues: []
   };
@@ -27,18 +28,34 @@ class MainContainer extends Component {
       });
   };
 
+  fetchEconomicNews = () => {
+    fetch(ApiCall)
+      .then(resp => resp.json())
+      .then(news => {
+        this.setState({
+          news: news
+        });
+      });
+  };
+
   componentDidMount() {
     this.fetchStocks();
+    // this.fetchEconomicNews();
   }
+  componentDidUpdate(prevProps) {
+    if(prevProps){
+         this.fetchEconomicNews();
+     }
+   }
 
   // componentWillUnmount() {
   //   clearInterval(this.interval);
   // }
 
-  handleChart = (stockId) => { 
+  handleChart = stockId => {
     this.setState({
       selected_stock_id: stockId
-    }) 
+    });
   };
 
   // removeStock = stock => {
@@ -69,13 +86,10 @@ class MainContainer extends Component {
             />
           </div>
           <div className="col-sm-8">
-            <Charts
-              selectedStockId={this.state.selected_stock_id}
-              
-            />
+            <Charts selectedStockId={this.state.selected_stock_id} />
           </div>
           <div className="col-sm-4">
-            <NewsContainer />
+            <NewsContainer news={this.state.news.articles}/>
           </div>
         </div>
       </div>
