@@ -14,7 +14,7 @@ class IndexPage extends Component {
           <>
             once logge in shows:
             <MainContainer />
-            {/* <TVChartContainer /> */}
+            <TVChartContainer />
             {/* <Charts/> */}
           </>
         ) : (
