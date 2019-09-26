@@ -25,7 +25,7 @@ class Stock extends React.Component {
     return (
       <div>
         <div
-          className="card"
+          className="card" 
           onClick={() => this.props.handleChart(this.props.stock.id)}
         >
           <div className="card-body">

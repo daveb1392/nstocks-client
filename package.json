@@ -7,6 +7,7 @@
     "bootstrap": "^4.3.1",
     "chart.js": "^2.8.0",
     "chartjs-plugin-zoom": "^0.7.4",
+    "mdbreact": "^4.20.0",
     "plotly.js": "^1.49.5",
     "react": "^16.9.0",
     "react-bootstrap-table": "^4.3.1",

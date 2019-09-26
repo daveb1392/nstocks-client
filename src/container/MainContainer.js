@@ -6,14 +6,15 @@ import NewsContainer from "./NewsContainer"
  const API_KEY = "V888PZNUNWFPPYH7";
 
 
-const ApiCall = "https://newsapi.org/v2/top-headlines?country=us&apiKey=824367279b4c41d59cb038805085de31&category=business";
+const ApiCall =
+  "https://newsapi.org/v2/top-headlines?country=us&apiKey=660c3463c12746e09799d80d01560e2e&category=business";
 const URL = " http://localhost:3000/stocks";
 
 class MainContainer extends Component {
   state = {
     stocks: [],
     selected_stock_id: null,
-    news: []
+    news: {articles:[]}
     // stockChartXValues: [],
     // stockChartYValues: []
   };
@@ -25,6 +26,8 @@ class MainContainer extends Component {
         this.setState({
           stocks: stocks
         });
+      }).catch((err) => {
+        // add some mock data to state
       });
   };
 
@@ -40,13 +43,14 @@ class MainContainer extends Component {
 
   componentDidMount() {
     this.fetchStocks();
+    this.fetchEconomicNews();
     // this.fetchEconomicNews();
   }
-  componentDidUpdate(prevProps) {
-    if(prevProps){
-         this.fetchEconomicNews();
-     }
-   }
+  // componentDidUpdate(prevProps) {
+  //   if(prevProps){
+  //        this.fetchEconomicNews();
+  //    }
+  //  }
 
   // componentWillUnmount() {
   //   clearInterval(this.interval);
