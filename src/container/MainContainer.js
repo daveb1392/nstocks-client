@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import StockContainer from "./StockContainer";
 import Charts from "./Charts";
-import NewsContainer from "./NewsContainer"
+import NewsContainer from "./NewsContainer";
+import TableTest from "../components/TableTest";
 
  const API_KEY = "V888PZNUNWFPPYH7";
 
@@ -93,7 +94,13 @@ class MainContainer extends Component {
             <Charts selectedStockId={this.state.selected_stock_id} />
           </div>
           <div className="col-sm-4">
-            <NewsContainer news={this.state.news.articles}/>
+            <NewsContainer news={this.state.news.articles} />
+          </div>
+          <div>
+            <TableTest
+              stocks={this.state.stocks}
+              handleChart={this.handleChart}
+            />
           </div>
         </div>
       </div>
