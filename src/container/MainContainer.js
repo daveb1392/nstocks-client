@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import StockContainer from "./StockContainer";
 import Charts from "./Charts";
+import TestDrag from "./TestDrag";
 import NewsContainer from "./NewsContainer";
 import TableTest from "../components/TableTest";
-
+let Draggable = window.ReactDraggable;
  const API_KEY = "V888PZNUNWFPPYH7";
 
 
@@ -15,7 +16,8 @@ class MainContainer extends Component {
   state = {
     stocks: [],
     selected_stock_id: null,
-    news: {articles:[]}
+    news: {articles:[]},
+    
     // stockChartXValues: [],
     // stockChartYValues: []
   };
@@ -83,26 +85,32 @@ class MainContainer extends Component {
           searchTerm={this.state.searchTerm}
         /> */}
 
-        <div className="row">
+        {/* <div className="row">
           <div className="col-sm-4">
-            <StockContainer
-              stocks={this.state.stocks}
-              handleChart={this.handleChart}
-            />
-          </div>
-          <div className="col-sm-8">
-            <Charts selectedStockId={this.state.selected_stock_id} />
-          </div>
-          <div className="col-sm-4">
-            <NewsContainer news={this.state.news.articles} />
-          </div>
-          <div>
             <TableTest
               stocks={this.state.stocks}
               handleChart={this.handleChart}
             />
+          </div> */}
+          {/* <div className="col-sm-8"> */}
+          <div>
+            <TestDrag
+              selectedStockId={this.state.selected_stock_id}
+              news={this.state.news.articles}
+              stocks={this.state.stocks}
+              handleChart={this.handleChart}
+            />
           </div>
-        </div>
+          {/* <div className="col-sm-4">
+            <NewsContainer news={this.state.news.articles} />
+          </div> */}
+          <div>
+            {/* <StockContainer
+              stocks={this.state.stocks}
+              handleChart={this.handleChart}
+            /> */}
+          </div>
+        {/* </div> */}
       </div>
     );
   }
