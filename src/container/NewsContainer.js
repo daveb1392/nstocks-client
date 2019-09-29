@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import News from "../components/News";
+import { Card, Container } from "semantic-ui-react";
 
 
 const ApiCall= "https://newsapi.org/v2/top-headlines?country=us&apiKey=824367279b4c41d59cb038805085de31&category=business"
@@ -57,13 +58,13 @@ class NewsContainer extends Component {
   render() {
     // debugger;
     return (
-      <div>
-        {this.props.news ?
-        (
-        this.props.news.map(news => (  
-        <News news={news} />)
-        ) ) : (null) }
-      </div>
+      // <Container>
+        <Card.Group>
+          {this.props.news
+            ? this.props.news.map(news => <News news={news} />)
+            : null}
+        </Card.Group>
+      // </Container>
     );
   }
 }

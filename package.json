@@ -22,6 +22,7 @@
     "react-detect-offline": "^2.4.0",
     "react-dom": "^16.10.0",
     "react-draggable": "^4.0.3",
+    "react-epic-spinners": "^0.4.1",
     "react-grid-layout": "^0.16.6",
     "react-helmet": "^5.2.1",
     "react-infinite-scroller": "^1.2.4",

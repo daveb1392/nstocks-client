@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import TdashLogo from "./TdashLogo.svg";
 import { List, Button, Header, Menu, Container, Image } from "semantic-ui-react";
 import { Route, NavLink } from "react-router-dom";
 
@@ -6,10 +7,10 @@ const Navbar = ({ user, signUp, logIn, logOut }) => {
   return (
     <Menu>
       <Container>
-        <Menu.Item as="a" header>
+        <Menu.Item fluid>
           <Image
-            size="small"
-            src="/Users/david/Development/nstocks/nstocks-client/public/Tdash_logo.png"
+            className="logo"
+            src={TdashLogo}
           />
         </Menu.Item>
         {user && !user.error ? (

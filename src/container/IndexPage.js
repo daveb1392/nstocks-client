@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import MainContainer from "./MainContainer";
-import DragResize from "./DragResize"
-import TableTest from "../components/TableTest"
-import { TVChartContainer } from "../components/TVChartContainer/index";
-import Charts from "./Charts";
-import BasicLayout from "./GridTest";
+// import DragResize from "./DragResize"
+// import TableTest from "../components/TableTest"
+// import { TVChartContainer } from "../components/TVChartContainer/index";
+// import Charts from "./Charts";
+// import BasicLayout from "./GridTest";
 
 
 class IndexPage extends Component {

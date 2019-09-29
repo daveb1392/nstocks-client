@@ -5,7 +5,15 @@ import TestDrag from "./TestDrag";
 import NewsContainer from "./NewsContainer";
 import TableTest from "../components/TableTest";
 import DynamicMinMaxLayout from "./GridTest";
-import { Container } from "semantic-ui-react";
+import { Container, Grid } from "semantic-ui-react";
+// import Grid from "@material-ui/core/Grid";
+import { makeStyles } from "@material-ui/core/styles";
+// import { div } from "gl-matrix/src/gl-matrix/vec3";
+
+
+
+
+
 let Draggable = window.ReactDraggable;
  const API_KEY = "V888PZNUNWFPPYH7";
 
@@ -69,42 +77,36 @@ class MainContainer extends Component {
 
   render() {
     return (
-      <div>
-        {/* <div className="row">
-          <div className="col-sm-4">
-            <TableTest
-              stocks={this.state.stocks}
-              handleChart={this.handleChart}
-            />
-          </div> */}
-        {/* <div className="col-sm-8"> */}
-        <div>
-          <TestDrag
-            selectedStockId={this.state.selected_stock_id}
-            news={this.state.news.articles}
-            stocks={this.state.stocks}
-            handleChart={this.handleChart}
-          />
-        </div>
-        <div className="col-sm-4">
-          <NewsContainer news={this.state.news.articles} />
-        </div>
-        {/* <Container>
-          <DynamicMinMaxLayout
-            selectedStockId={this.state.selected_stock_id}
-            handleChart={this.handleChart}
-            news={this.state.news.articles}
-            stocks={this.state.stocks}
-          />
-        </Container> */}
-        <div>
-          {/* <StockContainer
-              stocks={this.state.stocks}
-              handleChart={this.handleChart}
-            /> */}
-        </div>
-        {/* </div> */}
-      </div>
+      // <Grid celled>
+        
+      //     <TestDrag
+      //        selectedStockId={this.state.selected_stock_id}
+      //        news={this.state.news.articles}
+      //        stocks={this.state.stocks}
+      //        handleChart={this.handleChart}
+      //      />
+        
+      //   <Container>
+      //     <NewsContainer news={this.state.news.articles} />
+      //   </Container>
+      // </Grid>
+        <Grid celled>
+  <Grid.Row>
+      <Grid.Column width={16}>
+        <TestDrag
+             selectedStockId={this.state.selected_stock_id}
+             news={this.state.news.articles}
+             stocks={this.state.stocks}
+             handleChart={this.handleChart}
+           />
+      </Grid.Column>
+    </Grid.Row>
+    <Grid.Row>
+      <Grid.Column width={16}>
+        <NewsContainer news={this.state.news.articles} />
+      </Grid.Column>
+    </Grid.Row>
+  </Grid>
     );
   }
 }

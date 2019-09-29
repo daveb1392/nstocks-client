@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import './container/IndexPage';
 import App from './App';
 import "semantic-ui-css/semantic.min.css";
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "semantic-ui-css/semantic.js";
+// import "bootstrayp/dist/css/bootstrap.min.css";
 // import "semantic-ui-css/semantic.min.css";
 import { BrowserRouter as Router } from "react-router-dom";
 
