@@ -1,51 +1,43 @@
 import React, { Component } from "react";
-import { List, Button, Header } from "semantic-ui-react";
-
+import { List, Button, Header, Menu, Container, Image } from "semantic-ui-react";
 import { Route, NavLink } from "react-router-dom";
 
 const Navbar = ({ user, signUp, logIn, logOut }) => {
   return (
-    <nav>
-      <Header centered horizontal>
-        <NavLink to="/" exact>
-          <h1>Home</h1>
-        </NavLink>
-      </Header>
-
-      {user && !user.error ? (
-        <div>
-          <Header
-            floated="left"
-            horizontal
-            as="h4"
-          >{` Logged in as ${user.email}`}</Header>
-          <Button onClick={logOut} floated="right">
-            <Button.Content>Log out</Button.Content>
-          </Button>
-        </div>
-      ) : (
-        <>
-          <Button floated="left" horizontal>
-            <Button.Content>
-              <NavLink to="/signup" exact>
-                Sign up
-              </NavLink>
-            </Button.Content>
-          </Button>
-
-          <Button floated="left" horizontal>
-            <Button.Content>
+    <Menu>
+      <Container>
+        <Menu.Item as="a" header>
+          <Image
+            size="small"
+            src="/Users/david/Development/nstocks/nstocks-client/public/Tdash_logo.png"
+          />
+        </Menu.Item>
+        {user && !user.error ? (
+          <Menu.Menu position="right">
+            <Menu.Item onClick={logOut} as="a" name="logout">
+              Log out
+            </Menu.Item>
+          </Menu.Menu>
+        ) : (
+          <Menu.Menu position="right">
+            <Menu.Item as="a" name="login">
               <NavLink to="/login" exact>
                 Login
               </NavLink>
-            </Button.Content>
-          </Button>
-        </>
-      )}
-
-      <br />
-    </nav>
+            </Menu.Item>
+            <Menu.Item as="a" name="register">
+              <NavLink to="/signup" exact>
+                Sign up
+              </NavLink>
+            </Menu.Item>
+          </Menu.Menu>
+        )}
+      </Container>
+    </Menu>
   );
 };
 
 export default Navbar;
+
+
+

@@ -2,20 +2,19 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Draggable from "react-draggable";
 import Chart from "./Charts"
-import TestDrag from "./TestDrag";
 import TableTest from "../components/TableTest";
 import NewsContainer from "./NewsContainer";
 import News from "../components/News";
 
 
-class ChartDrag extends React.Component {
+class ComponentDrag extends React.Component {
   state = {
     activeDrags: 0,
     deltaPosition: {
       x: 0, y: 0
     },
     controlledPosition: {
-      x: -400, y: 200
+      x: -200, y: 200
     }
   };
 
@@ -70,17 +69,22 @@ class ChartDrag extends React.Component {
       <div>
         <Draggable {...dragHandlers}>
           <div className="box">
-            <Chart selectedStockId={this.props.selectedStockId} />
+              
+            <Chart 
+            selectedStockId={this.props.selectedStockId} />
            
             {/* <News news={this.props.news.articles} /> */}
+          
           </div>
         </Draggable>
         <Draggable {...dragHandlers}>
           <div className="box">
+            
             <TableTest
               stocks={this.props.stocks}
               handleChart={this.props.handleChart}
             />
+           
             {/* <News news={this.props.news.articles} /> */}
           </div>
         </Draggable>
@@ -100,4 +104,4 @@ class ChartDrag extends React.Component {
 }
 }
 
-export default ChartDrag;
+export default ComponentDrag;

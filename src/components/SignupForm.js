@@ -1,5 +1,13 @@
 import React from "react";
-import { Form, Button } from "semantic-ui-react";
+import {
+  Button,
+  Form,
+  Grid,
+  Header,
+  Message,
+  Segment
+} from "semantic-ui-react";
+
 
 class SignupForm extends React.Component {
   state = {
@@ -7,12 +15,9 @@ class SignupForm extends React.Component {
     password: ""
   };
 
-
-
   handleChangeEmail = event => {
     this.setState({ email: event.target.value });
   };
-
 
   handleChangePassword = event => {
     this.setState({ password: event.target.value });
@@ -20,27 +25,40 @@ class SignupForm extends React.Component {
 
   render() {
     return (
-      <Form onSubmit={() => this.props.handleSubmit(this.state)}>
-        <Form.Field>
-          <label>Email</label>
-          <input
-            value={this.state.email}
-            onChange={this.handleChangeEmail}
-            type="email"
-            placeholder="Email"
-          />
-        </Form.Field>
-        <Form.Field>
-          <label>Password</label>
-          <input
-            value={this.state.password}
-            onChange={this.handleChangePassword}
-            type="password"
-            placeholder="Password"
-          />
-        </Form.Field>
-        <Button type="submit">Sign up</Button>
-      </Form>
+      <Grid centered columns={2}>
+        <Grid.Column>
+          <Header as="h2" textAlign="center">
+            Login
+          </Header>
+          <Segment>
+            <Form
+              size="large"
+              onSubmit={() => this.props.handleSubmit(this.state)}
+            >
+              <Form.Input
+                fluid
+                icon="user"
+                iconPosition="left"
+                value={this.state.email}
+                onChange={this.handleChangeEmail}
+                placeholder="Email address"
+              />
+              <Form.Input
+                fluid
+                icon="lock"
+                iconPosition="left"
+                value={this.state.password}
+                onChange={this.handleChangePassword}
+                placeholder="Password"
+                type="password"
+              />
+              <Button color="blue" fluid size="large">
+                Login
+              </Button>
+            </Form>
+          </Segment>
+        </Grid.Column>
+      </Grid>
     );
   }
 }

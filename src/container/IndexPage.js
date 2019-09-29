@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import MainContainer from "./MainContainer";
+import DragResize from "./DragResize"
 import TableTest from "../components/TableTest"
 import { TVChartContainer } from "../components/TVChartContainer/index";
 import Charts from "./Charts";
@@ -14,10 +15,11 @@ class IndexPage extends Component {
       <div>
         {this.props.user && !this.props.user.error ? (
           <>
-            once logge in shows:
+            
             <MainContainer />
+            {/* <DragResize /> */}
             {/* <TVChartContainer /> */}
-            <BasicLayout />
+            {/* <BasicLayout /> */}
             {/* <TableTest /> */}
             {/* <Table /> */}
            

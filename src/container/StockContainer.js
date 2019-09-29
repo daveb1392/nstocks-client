@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Stocks from "../components/Stocks";
+// import DatatablePage from "../components/TableTest";
 
 class StockContainer extends Component {
   render() {

@@ -71,7 +71,7 @@ class Chart extends React.Component {
               marker: { color: "red" }
             }
           ]}
-          layout={{ width: 750, height: 650, title: this.props.selectedStockId }}
+          layout={{ width: "100%", height: "100%", title: this.props.selectedStockId }}
         />
       </div>
     );

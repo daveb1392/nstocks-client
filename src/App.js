@@ -5,6 +5,12 @@ import API from "./adapters/API.js";
 import IndexPage from "./container/IndexPage";
 import SignupForm from "./components/SignupForm.js";
 import Login from "./components/Login.js";
+import "react-grid-layout/css/styles.css";
+import "react-resizable/css/styles.css";
+import {Helmet} from 'react-helmet';
+// import "react-grid-layout/css/styles.css";
+
+
 
 
 
@@ -43,16 +49,15 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+        <Helmet>
+          <style>{"body { background-color: grey; }"}</style>
+        </Helmet>
         <Navbar user={this.state.user} logOut={this.logOut} />
 
         <Route
           exact
           path="/"
-          component={() => (
-            <IndexPage
-              user={this.state.user}
-            />
-          )}
+          component={() => <IndexPage user={this.state.user} />}
         />
         <Route
           path="/login"
@@ -64,7 +69,6 @@ class App extends React.Component {
             <SignupForm {...props} handleSubmit={this.signUp} />
           )}
         />
-      
       </div>
     );
   }

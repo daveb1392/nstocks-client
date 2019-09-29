@@ -4,6 +4,8 @@ import Charts from "./Charts";
 import TestDrag from "./TestDrag";
 import NewsContainer from "./NewsContainer";
 import TableTest from "../components/TableTest";
+import DynamicMinMaxLayout from "./GridTest";
+import { Container } from "semantic-ui-react";
 let Draggable = window.ReactDraggable;
  const API_KEY = "V888PZNUNWFPPYH7";
 
@@ -65,26 +67,9 @@ class MainContainer extends Component {
     });
   };
 
-  // removeStock = stock => {
-  //   this.setState({
-  //     portfolio: this.state.portfolio.filter(
-  //       sellStock => sellStock.id !== stock.id
-  //     )
-  //   });
-  // };
-
   render() {
     return (
       <div>
-        {/* <SearchBar
-          handleSort={this.handleSort}
-          sortValue={this.state.sortValue}
-          handleFilter={this.handleFilter}
-          filterType={this.state.filterType}
-          handleSearch={this.handleSearch}
-          searchTerm={this.state.searchTerm}
-        /> */}
-
         {/* <div className="row">
           <div className="col-sm-4">
             <TableTest
@@ -92,24 +77,32 @@ class MainContainer extends Component {
               handleChart={this.handleChart}
             />
           </div> */}
-          {/* <div className="col-sm-8"> */}
-          <div>
-            <TestDrag
-              selectedStockId={this.state.selected_stock_id}
-              news={this.state.news.articles}
-              stocks={this.state.stocks}
-              handleChart={this.handleChart}
-            />
-          </div>
-          {/* <div className="col-sm-4">
-            <NewsContainer news={this.state.news.articles} />
-          </div> */}
-          <div>
-            {/* <StockContainer
+        {/* <div className="col-sm-8"> */}
+        <div>
+          <TestDrag
+            selectedStockId={this.state.selected_stock_id}
+            news={this.state.news.articles}
+            stocks={this.state.stocks}
+            handleChart={this.handleChart}
+          />
+        </div>
+        <div className="col-sm-4">
+          <NewsContainer news={this.state.news.articles} />
+        </div>
+        {/* <Container>
+          <DynamicMinMaxLayout
+            selectedStockId={this.state.selected_stock_id}
+            handleChart={this.handleChart}
+            news={this.state.news.articles}
+            stocks={this.state.stocks}
+          />
+        </Container> */}
+        <div>
+          {/* <StockContainer
               stocks={this.state.stocks}
               handleChart={this.handleChart}
             /> */}
-          </div>
+        </div>
         {/* </div> */}
       </div>
     );

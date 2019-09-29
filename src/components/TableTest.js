@@ -8,7 +8,8 @@ class TableTest extends Component {
     columnDefs: [
       {
         headerName: "Tickr",
-        field: "id"
+        field: "id",
+        resizable: true
       },
       {
         headerName: "Current Price",
@@ -45,23 +46,33 @@ class TableTest extends Component {
     // document.querySelector("#selectedRows").innerHTML = selectedRowsString;
   }
 
+  onFirstDataRendered(params) {
+    params.api.sizeColumnsToFit();
+  }
+
+
+
+
   render() {
     return (
-      <div
-        className="ag-theme-balham"
-        style={{
-          height: "500px",
-          width: "600px"
-        }}
-      >
-        <AgGridReact
-          columnDefs={this.state.columnDefs}
-          rowData={this.props.stocks}
-          rowSelection={this.state.rowSelection}
-          onSelectionChanged={this.onSelectionChanged.bind(this)}
-          onGridReady={params => (this.gridApi = params.api)}
-          // onCellClicked={this.props.handleChart(this.props.stocks.id)}
-        ></AgGridReact>
+      <div className="grid-wrapper style">
+        <div
+          className="ag-theme-balham"
+          style={{
+            height: "500px",
+            width: "600px"
+          }}
+        >
+          <AgGridReact
+            columnDefs={this.state.columnDefs}
+            rowData={this.props.stocks}
+            rowSelection={this.state.rowSelection}
+            onSelectionChanged={this.onSelectionChanged.bind(this)}
+            onFirstDataRendered={this.onFirstDataRendered.bind(this)}
+            onGridReady={params => (this.gridApi = params.api)}
+            // onCellClicked={this.props.handleChart(this.props.stocks.id)}
+          ></AgGridReact>
+        </div>
       </div>
     );
   }
