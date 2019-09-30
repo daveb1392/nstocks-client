@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import MainContainer from "./MainContainer";
+import NewChart from "./NewChart"
 // import DragResize from "./DragResize"
 // import TableTest from "../components/TableTest"
 // import { TVChartContainer } from "../components/TVChartContainer/index";
@@ -28,6 +29,7 @@ class IndexPage extends Component {
         ) : (
           <>
             previous to logging in.
+            <NewChart/>
             {/* <MainContainer /> */}
             {/* <TVChartContainer /> */}
           </>

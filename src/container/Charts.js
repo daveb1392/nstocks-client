@@ -31,7 +31,7 @@ class Chart extends React.Component {
     console.log(pointerToThis);
     const API_KEY = "V888PZNUNWFPPYH7";
     
-    let API_Call = `https://www.alphavantage.co/query?interval=5min&function=TIME_SERIES_INTRADAY&symbol=${this.props.selectedStockId}&outputsize=full&apikey=${API_KEY}`;
+    let API_Call = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${this.props.selectedStockId}&outputsize=compact&apikey=${API_KEY}`;
     let stockChartXValuesFunction = [];
     let stockChartYValuesFunction = [];
 
@@ -42,10 +42,10 @@ class Chart extends React.Component {
       .then(function(data) {
         console.log(data);
 
-        for (let key in data["Time Series (5min)"]) {
+        for (let key in data["Time Series (Daily)"]) {
           stockChartXValuesFunction.push(key);
           stockChartYValuesFunction.push(
-            data["Time Series (5min)"][key]["1. open"]
+            data["Time Series (Daily)"][key]["1. open"]
           );
         }
 

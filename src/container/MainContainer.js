@@ -20,14 +20,14 @@ let Draggable = window.ReactDraggable;
 
 
 const ApiCall =
-  "https://newsapi.org/v2/top-headlines?country=us&apiKey=660c3463c12746e09799d80d01560e2e&category=business";
+  "https://stocknewsapi.com/api/v1/category?section=general&items=20&sortby=trending&token=fthuqovsibxdqmlovzc3v4v7zpqvos87sq5uyb0j"
 const URL = " http://localhost:3000/stocks";
 
 class MainContainer extends Component {
   state = {
     stocks: [],
     selected_stock_id: null,
-    news: {articles:[]},
+    news: {data:[]},
     
     // stockChartXValues: [],
     // stockChartYValues: []
@@ -37,18 +37,28 @@ class MainContainer extends Component {
     fetch(URL)
       .then(resp => resp.json())
       .then(stocks => {
+        console.log(stocks);
+        
         this.setState({
           stocks: stocks
         });
       }).catch((err) => {
-        "loading"
+        console.log(err)
       });
   };
+  
+
+
+
+
+
+
 
   fetchEconomicNews = () => {
     fetch(ApiCall)
       .then(resp => resp.json())
       .then(news => {
+        console.log(news);
         this.setState({
           news: news
         });
@@ -57,6 +67,7 @@ class MainContainer extends Component {
 
   componentDidMount() {
     this.fetchStocks();
+    setInterval(this.fetchStocks, 120000)
     this.fetchEconomicNews();
     // this.fetchEconomicNews();
   }
@@ -96,7 +107,7 @@ class MainContainer extends Component {
           <Grid.Column width={16}>
             <TestDrag
               selectedStockId={this.state.selected_stock_id}
-              news={this.state.news.articles}
+              news={this.state.news.data}
               stocks={this.state.stocks}
               handleChart={this.handleChart}
             />
@@ -105,7 +116,7 @@ class MainContainer extends Component {
         <Grid.Row>
           <Grid.Column width={16}>
             <NewsContainer
-              news={this.state.news.articles}
+              news={this.state.news.data}
               selectedStockId={this.state.selected_stock_id}
             />
           </Grid.Column>

@@ -3,11 +3,11 @@ import News from "../components/News";
 import { Card, Container } from "semantic-ui-react";
 
 
-const ApiCall= "https://newsapi.org/v2/top-headlines?country=us&apiKey=824367279b4c41d59cb038805085de31&category=business"
+const ApiCall= "`https://newsapi.org/v2/everything?q=${this.props.selectedStockId}&from=2019-09-15&sortBy=publishedAt&apiKey=660c3463c12746e09799d80d01560e2e"
 
 class NewsContainer extends Component {
   state = {
-    stockNews: { articles: [] }
+    stockNews: { data: [] } 
   };
 
 
@@ -17,10 +17,13 @@ class NewsContainer extends Component {
   }}
 
   fetchStockNews = () => {
-    let ApiCall = `https://newsapi.org/v2/everything?q=${this.props.selectedStockId}&from=2019-09-15&sortBy=publishedAt&apiKey=660c3463c12746e09799d80d01560e2e`;
+    
+    let ApiCall = `https://stocknewsapi.com/api/v1?tickers=${this.props.selectedStockId}&items=20&sortby=algo&token=fthuqovsibxdqmlovzc3v4v7zpqvos87sq5uyb0j`;
+    
     fetch(ApiCall)
       .then(resp => resp.json())
       .then(news => {
+        console.log(news)
         this.setState({
           stockNews: news
         });
@@ -39,9 +42,9 @@ class NewsContainer extends Component {
               <News news={news} />
             ))}
           </Card.Group>
-        ) : (
+        ) : ( 
           <Card.Group>
-            {this.state.stockNews.articles.map(news => (
+            {this.state.stockNews.data.map(news => (
             <News news={news} />
             ))}
           </Card.Group>
