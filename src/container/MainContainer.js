@@ -7,7 +7,8 @@ import TableTest from "../components/TableTest";
 import DynamicMinMaxLayout from "./GridTest";
 import { Container, Grid } from "semantic-ui-react";
 // import Grid from "@material-ui/core/Grid";
-import { makeStyles } from "@material-ui/core/styles";
+// import { makeStyles } from "@material-ui/core/styles";
+import { FlowerSpinner } from "react-epic-spinners";
 // import { div } from "gl-matrix/src/gl-matrix/vec3";
 
 
@@ -40,7 +41,7 @@ class MainContainer extends Component {
           stocks: stocks
         });
       }).catch((err) => {
-        // add some mock data to state
+        "loading"
       });
   };
 

@@ -79,7 +79,6 @@ class TableTest extends Component {
             width: "600px"
           }}
         >
-          {" "}
           {!this.props.stocks ? (
             <FlowerSpinner />
           ) : (
