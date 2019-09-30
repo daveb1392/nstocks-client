@@ -8,31 +8,35 @@ const ApiCall= "https://newsapi.org/v2/top-headlines?country=us&apiKey=824367279
 class NewsContainer extends Component {
   //   constructor(props) {
   //     super(props);
-
+  state = {
+    stockNews: { articles: [] }
+  };
   //     this.state = {
   //       news: []
   //     };
   //   }
 
-  //   componentDidUpdate(prevProps) {
-  //     if(prevProps){
-  //         this.fetchEconomicNews();
-  //     }
-  //   }
+   componentDidUpdate(prevProps) {
+    if(this.props.selectedStockId !== prevProps.selectedStockId){
+    return this.fetchStockNews();;
+  }}
 
-  //   fetchEconomicNews = () => {
-  //     fetch(ApiCall)
-  //       .then(resp => resp.json())
-  //       .then(news => {
-  //         // let newsDeet = [];
-  //         // for (let key in news) {
-  //         //   newsDeet.push(key);
-  //         // }
-  //         this.setState({
-  //           news: news
-  //         });
-  //       });
-  //   };
+  fetchStockNews = () => {
+    let ApiCall = `https://newsapi.org/v2/everything?q=${this.props.selectedStockId}&from=2019-09-15&sortBy=publishedAt&apiKey=660c3463c12746e09799d80d01560e2e`;
+    fetch(ApiCall)
+      .then(resp => resp.json())
+      .then(news => {
+        // let newsDeet = [];
+        // for (let key in news) {
+        //   newsDeet.push(key);
+        // }
+        this.setState({
+          stockNews: news
+        });
+      });
+  };
+
+
 
   // renderNewsArticles = () => {
   //     if (this.state.news.articles) {
@@ -41,10 +45,10 @@ class NewsContainer extends Component {
   //         ))}
   // }
 
-//   renderNewsArticles = () => {
-//       if (!this.props.news) {
-//           return null      }
-//   }
+  //   renderNewsArticles = () => {
+  //       if (!this.props.news) {
+  //           return null      }
+  //   }
 
   //   fetchEconomicNews = () => {
   //     fetch(ApiCall)
@@ -58,14 +62,19 @@ class NewsContainer extends Component {
   render() {
     // debugger;
     return (
-      // <Container>
-        <Card.Group>
-          {this.props.news
-            ? this.props.news.map(news => <News news={news} />)
-            : null}
-        </Card.Group>
-      // </Container>
+      <div>
+        {!this.props.selectedStockId ? (
+          <Card.Group>
+            {this.props.news.map(news => <News news={news} />)}
+          </Card.Group>
+        ) : (
+          <Card.Group>
+            <News news={this.state.stockNews} />
+          </Card.Group>
+        )}
+      </div>
     );
   }
+
 }
 export default NewsContainer

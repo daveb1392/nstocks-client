@@ -78,35 +78,38 @@ class MainContainer extends Component {
   render() {
     return (
       // <Grid celled>
-        
+
       //     <TestDrag
       //        selectedStockId={this.state.selected_stock_id}
       //        news={this.state.news.articles}
       //        stocks={this.state.stocks}
       //        handleChart={this.handleChart}
       //      />
-        
+
       //   <Container>
       //     <NewsContainer news={this.state.news.articles} />
       //   </Container>
       // </Grid>
-        <Grid celled>
-  <Grid.Row>
-      <Grid.Column width={16}>
-        <TestDrag
-             selectedStockId={this.state.selected_stock_id}
-             news={this.state.news.articles}
-             stocks={this.state.stocks}
-             handleChart={this.handleChart}
-           />
-      </Grid.Column>
-    </Grid.Row>
-    <Grid.Row>
-      <Grid.Column width={16}>
-        <NewsContainer news={this.state.news.articles} />
-      </Grid.Column>
-    </Grid.Row>
-  </Grid>
+      <Grid celled>
+        <Grid.Row>
+          <Grid.Column width={16}>
+            <TestDrag
+              selectedStockId={this.state.selected_stock_id}
+              news={this.state.news.articles}
+              stocks={this.state.stocks}
+              handleChart={this.handleChart}
+            />
+          </Grid.Column>
+        </Grid.Row>
+        <Grid.Row>
+          <Grid.Column width={16}>
+            <NewsContainer
+              news={this.state.news.articles}
+              selectedStockId={this.state.selected_stock_id}
+            />
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
     );
   }
 }

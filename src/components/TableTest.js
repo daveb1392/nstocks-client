@@ -69,7 +69,7 @@ class TableTest extends Component {
   }
 
   render() {
-    debugger;
+    // debugger;
     return (
       <div className="grid-wrapper style">
         <div
