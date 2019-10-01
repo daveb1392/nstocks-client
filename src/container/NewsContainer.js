@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import News from "../components/News";
-import { Card, Container } from "semantic-ui-react";
+import { Card, Container, Segment, Header, Divider } from "semantic-ui-react";
 
 
 const ApiCall= "`https://newsapi.org/v2/everything?q=${this.props.selectedStockId}&from=2019-09-15&sortBy=trending&apiKey=660c3463c12746e09799d80d01560e2e"
@@ -45,10 +45,14 @@ class NewsContainer extends Component {
 
 
   render() {
-    debugger;
+    // debugger;
     return (
-      <Container>
-        <h3>News</h3>
+      <div style={{overflow: 'scroll', height: '688px'}}>
+        <Segment inverted className="segment">
+          <Divider horizontal inverted>
+            News
+          </Divider>
+        </Segment>
         {!this.props.selectedStockId ? (
           <Card.Group centered>
             {this.props.news.map(news => (
@@ -62,7 +66,7 @@ class NewsContainer extends Component {
             ))}
           </Card.Group>
         )}
-      </Container>
+      </div>
     );
   }
 

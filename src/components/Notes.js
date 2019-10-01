@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ReactStickies from "react-stickies"; //ES6
+import { Card, Container, Segment, Header, Divider } from "semantic-ui-react";
 
 class Notes extends Component {
   constructor(props) {
@@ -28,10 +29,17 @@ class Notes extends Component {
 
   render() {
     return (
+        <Container>
+        <Segment inverted className="segment">
+          <Divider horizontal inverted>
+            Tools
+          </Divider>
+        </Segment>
         <ReactStickies
           notes={this.state.notes}
           onChange={this.onChange}
         />
+        </Container>
     
     );
   }

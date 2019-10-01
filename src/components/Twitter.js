@@ -12,11 +12,17 @@ import {
   TwitterVideoEmbed,
   TwitterOnAirButton
 } from "react-twitter-embed";
+import { Card, Container, Segment, Header, Divider } from "semantic-ui-react";
 
 
 function Twitter() {
   return (
-    <div className="App">
+    <div>
+      <Segment inverted className="segment">
+        <Divider horizontal inverted>
+          Tweets
+        </Divider>
+      </Segment>
       <TwitterTimelineEmbed
         sourceType="profile"
         screenName="zerohedge"

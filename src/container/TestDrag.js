@@ -5,6 +5,7 @@ import Chart from "./Charts"
 import TableTest from "../components/TableTest";
 import NewsContainer from "./NewsContainer";
 import News from "../components/News";
+import {Container} from "semantic-ui-react"
 
 
 class ComponentDrag extends React.Component {
@@ -66,7 +67,7 @@ class ComponentDrag extends React.Component {
     const dragHandlers = {onStart: this.onStart, onStop: this.onStop};
     const {deltaPosition, controlledPosition} = this.state;
     return (
-      <div>
+      <>
         <Draggable bounds="parent" handle="strong" {...dragHandlers}>
           <div className="box no-cursor">
             <strong className="cursor">
@@ -86,7 +87,7 @@ class ComponentDrag extends React.Component {
             <Chart selectedStockId={this.props.selectedStockId} />
           </div>
         </Draggable>
-      </div>
+      </>
     );
 }
 }

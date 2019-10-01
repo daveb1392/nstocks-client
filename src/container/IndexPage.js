@@ -28,7 +28,6 @@ class IndexPage extends Component {
           </>
         ) : (
           <>
-            previous to logging in.
             <NewChart/>
             {/* <MainContainer /> */}
             {/* <TVChartContainer /> */}

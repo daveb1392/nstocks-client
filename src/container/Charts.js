@@ -32,7 +32,7 @@ class Chart extends React.Component {
     const API_KEY = "V888PZNUNWFPPYH7";
     const ApiKeyTwo = "RU8WOMPG1N11NB3L";
     
-    let API_Call = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${this.props.selectedStockId}&outputsize=compact&apikey=${API_KEY}`;
+    let API_Call = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${this.props.selectedStockId}&outputsize=compact&apikey=${ApiKeyTwo}`;
     let stockChartXValuesFunction = [];
     let stockChartYValuesFunction = [];
 

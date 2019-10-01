@@ -105,7 +105,7 @@ class MainContainer extends Component {
       //     <NewsContainer news={this.state.news.articles} />
       //   </Container>
       // </Grid>
-      <Grid celled>
+      <Grid>
         <Grid.Row>
           <Grid.Column width={16}>
             <TestDrag
@@ -128,6 +128,11 @@ class MainContainer extends Component {
           </Grid.Column>
           <Grid.Column width={4}>
             <Twitter />
+          </Grid.Column>
+        </Grid.Row>
+        <Grid.Row>
+          <Grid.Column width={16}>
+            Footer goes here 
           </Grid.Column>
         </Grid.Row>
       </Grid>
