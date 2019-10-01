@@ -30,6 +30,7 @@ class Chart extends React.Component {
     const pointerToThis = this;
     console.log(pointerToThis);
     const API_KEY = "V888PZNUNWFPPYH7";
+    const ApiKeyTwo = "RU8WOMPG1N11NB3L";
     
     let API_Call = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${this.props.selectedStockId}&outputsize=compact&apikey=${API_KEY}`;
     let stockChartXValuesFunction = [];
@@ -71,7 +72,7 @@ class Chart extends React.Component {
               marker: { color: "red" }
             }
           ]}
-          layout={{ width: "100%", height: "100%", title: this.props.selectedStockId }}
+          layout={{ width: "700px", height: "100%", title: this.props.selectedStockId }}
         />
       </div>
     );

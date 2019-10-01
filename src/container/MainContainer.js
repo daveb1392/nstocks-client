@@ -3,9 +3,11 @@ import StockContainer from "./StockContainer";
 import Charts from "./Charts";
 import TestDrag from "./TestDrag";
 import NewsContainer from "./NewsContainer";
+import Notes from "../components/Notes"
 import TableTest from "../components/TableTest";
 import DynamicMinMaxLayout from "./GridTest";
 import { Container, Grid } from "semantic-ui-react";
+import Twitter from "../components/Twitter";
 // import Grid from "@material-ui/core/Grid";
 // import { makeStyles } from "@material-ui/core/styles";
 import { FlowerSpinner } from "react-epic-spinners";
@@ -88,6 +90,7 @@ class MainContainer extends Component {
   };
 
   render() {
+    // debugger
     return (
       // <Grid celled>
 
@@ -114,11 +117,17 @@ class MainContainer extends Component {
           </Grid.Column>
         </Grid.Row>
         <Grid.Row>
-          <Grid.Column width={16}>
+          <Grid.Column width={8}>
             <NewsContainer
               news={this.state.news.data}
               selectedStockId={this.state.selected_stock_id}
             />
+          </Grid.Column>
+          <Grid.Column width={4}>
+            <Notes />
+          </Grid.Column>
+          <Grid.Column width={4}>
+            <Twitter />
           </Grid.Column>
         </Grid.Row>
       </Grid>

@@ -37,6 +37,15 @@
   height: 50px;
 }
 
+.App {
+  background: #bdc3c7;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to bottom, #2c3e50, #bdc3c7);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to bottom, #2c3e50, #bdc3c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+
+
 
 
 * {
@@ -136,7 +145,7 @@
 .news{
   border: #282c34;
   background: white
-} */
+} 
 
 /* .ui.cards{
   width: 350px;
@@ -144,11 +153,7 @@
 } */
 
 
-/* .ui.container {
-  overflow: auto;
-  white-space: nowrap;
-}
-.ui.card { display: inline-block; overflow-x: scroll; } */
+/*  */
 
 .rag-red {
     background-color: lightcoral;
@@ -156,3 +161,18 @@
 .rag-green {
     background-color: lightgreen;
 }
+
+.news{
+  border: #282c34;
+  background: white
+} 
+
+.ui.container {
+  overflow: scroll;
+  
+}
+.ui.card { display: inline-block; overflow-x: scroll; }
+
+/* .ui.grid {
+  border: 25px
+} */

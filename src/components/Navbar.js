@@ -5,8 +5,8 @@ import { Route, NavLink } from "react-router-dom";
 
 const Navbar = ({ user, signUp, logIn, logOut }) => {
   return (
-    <Menu>
-      <Container>
+    <Menu inverted>
+      
         <Menu.Item fluid>
           <Image
             className="logo"
@@ -33,7 +33,6 @@ const Navbar = ({ user, signUp, logIn, logOut }) => {
             </Menu.Item>
           </Menu.Menu>
         )}
-      </Container>
     </Menu>
   );
 };
