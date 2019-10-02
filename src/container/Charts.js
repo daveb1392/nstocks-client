@@ -7,31 +7,74 @@ import Draggable from "react-draggable";
 
 let StockSymbol = "FB";
 class Chart extends React.Component {
+  // on click wanted to render charts on the other side, the chart being renderd will match the id
 
-// on click wanted to render charts on the other side, the chart being renderd will match the id
-
-
-    state = {
-      stockChartXValues: [],
-      stockChartYValues: []
-    };
-  
+  state = {
+    stockChartXValues: [],
+    stockChartYValues: []
+  };
 
   componentDidUpdate(prevProps) {
-
-    if(this.props.selectedStockId !== prevProps.selectedStockId){
-    return this.fetchStock();
+    if (this.props.selectedStockId !== prevProps.selectedStockId) {
+      return this.fetchNewStock();
     }
+    //  return this.fetchStock()
   }
 
-  
+  fetchNewStock() {
+    const pointerToThis = this;
+    let stockChartXValuesFunction = [];
+    let stockChartYValuesFunction = [];
+    let alpha = require("alphavantage")({ key: "RU8WOMPG1N11NB3L" });
+    alpha.data.intraday(this.props.selectedStockId).then(data => {
+      let x = alpha.util.polish(data);
+      console.log(x);
+      for (let key in x.data) {
+        // debugger
+        stockChartXValuesFunction.push(key);
+        stockChartYValuesFunction.push(x.data[key].open);
+      }
+      pointerToThis.setState({
+        stockChartXValues: stockChartXValuesFunction,
+        stockChartYValues: stockChartYValuesFunction
+      });
+    });
+  }
+
+  // componentDidMount() {
+
+  //   this.fetchNewStock();;
+  //   // this.fetchEconomicNews();
+  // }
+
+  // I need to convert the date into milliseconds
+
+  // fetchNewStock() {
+  //   // debugger
+  //   const pointerToThis = this;
+  //   let stockChartData = [];
+  //   let alpha = require("alphavantage")({ key: "RU8WOMPG1N11NB3L" });
+  //   alpha.data.intraday("MSFT").then(data => {
+  //     let stock = alpha.util.polish(data);
+  //     console.log(stock);
+  //     for (let key in stock.data) {
+  //       // debugger
+  //
+  //       stockChartData.push(new Date(key).getTime);
+  //       stockChartData.push(parseInt(stock.data[key].open));
+  //     }
+  //     pointerToThis.setState({
+  //       data1: stockChartData
+  //     });
+  //   });
+  // }
 
   fetchStock() {
     const pointerToThis = this;
     console.log(pointerToThis);
     const API_KEY = "V888PZNUNWFPPYH7";
     const ApiKeyTwo = "RU8WOMPG1N11NB3L";
-    
+
     let API_Call = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${this.props.selectedStockId}&outputsize=compact&apikey=${ApiKeyTwo}`;
     let stockChartXValuesFunction = [];
     let stockChartYValuesFunction = [];
@@ -72,7 +115,11 @@ class Chart extends React.Component {
               marker: { color: "red" }
             }
           ]}
-          layout={{ width: "700px", height: "100%", title: this.props.selectedStockId }}
+          layout={{
+            width: "700px",
+            height: "100%",
+            title: this.props.selectedStockId
+          }}
         />
       </div>
     );
