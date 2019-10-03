@@ -1,6 +1,6 @@
 import React from "react";
 import HighchartsReact from "highcharts-react-official";
-import Highcharts from "highcharts";
+import Highcharts from "highcharts/highstock";
 
 
 
@@ -67,7 +67,11 @@ class HighStock extends React.Component {
 
     return (
       <div>
-        <HighchartsReact highcharts={Highcharts} options={options} />
+        <HighchartsReact
+          highcharts={Highcharts}
+          constructorType={"stockChart"}
+          options={options}
+        />
       </div>
     );
   }
