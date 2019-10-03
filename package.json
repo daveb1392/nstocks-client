@@ -42,6 +42,7 @@
     "react-stickies": "0.0.16",
     "react-timeago": "^4.4.0",
     "react-twitter-embed": "^2.0.8",
+    "react-vis": "^1.11.7",
     "reactbulma": "^3.0.4",
     "reakit": "^1.0.0-beta.8",
     "request-promise": "^4.2.4",
