@@ -8,7 +8,7 @@ class TableTest extends Component {
   state = {
     columnDefs: [
       {
-        headerName: "Tickr",
+        headerName: "Ticker",
         field: "id",
         filter: "agTextColumnFilter",
         filterParams: {

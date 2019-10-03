@@ -85,7 +85,7 @@ class ComponentDrag extends React.Component {
         <Draggable handle="strong" {...dragHandlers}>
           <div className="box no-cursor">
             <strong className="cursor">
-              <div>Daily Chart</div>
+              <div>Intraday Chart</div>
             </strong>
             <Chart selectedStockId={this.props.selectedStockId} />
           </div>
@@ -101,7 +101,7 @@ class ComponentDrag extends React.Component {
         <Draggable handle="strong" {...dragHandlers}>
           <div className="box">
             <strong className="cursor">
-              <div>Intraday Chart</div>
+              <div>Daily Chart</div>
             </strong>
             <div className="chart">
               <HighStock selectedStockId={this.props.selectedStockId} />

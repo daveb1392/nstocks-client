@@ -26,19 +26,21 @@ class Chart extends React.Component {
     let stockChartXValuesFunction = [];
     let stockChartYValuesFunction = [];
     let alpha = require("alphavantage")({ key: "RU8WOMPG1N11NB3L" });
-    alpha.data.daily(this.props.selectedStockId).then(data => {
-      let x = alpha.util.polish(data);
-      console.log(x);
-      for (let key in x.data) {
-        // debugger
-        stockChartXValuesFunction.push(key);
-        stockChartYValuesFunction.push(x.data[key].open);
-      }
-      pointerToThis.setState({
-        stockChartXValues: stockChartXValuesFunction,
-        stockChartYValues: stockChartYValuesFunction
+    alpha.data
+      .intraday(this.props.selectedStockId, `compact`, 60)
+      .then(data => {
+        let x = alpha.util.polish(data);
+        console.log(x);
+        for (let key in x.data) {
+          // debugger
+          stockChartXValuesFunction.push(key);
+          stockChartYValuesFunction.push(x.data[key].open);
+        }
+        pointerToThis.setState({
+          stockChartXValues: stockChartXValuesFunction,
+          stockChartYValues: stockChartYValuesFunction
+        });
       });
-    });
   }
 
   // componentDidMount() {
@@ -75,7 +77,7 @@ class Chart extends React.Component {
     const API_KEY = "V888PZNUNWFPPYH7";
     const ApiKeyTwo = "RU8WOMPG1N11NB3L";
 
-    let API_Call = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${this.props.selectedStockId}&outputsize=compact&apikey=${ApiKeyTwo}`;
+    let API_Call = `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${this.props.selectedStockId}&interval=5min&outputsize=compact&apikey=${ApiKeyTwo}`;
     let stockChartXValuesFunction = [];
     let stockChartYValuesFunction = [];
 

@@ -27,7 +27,7 @@ class HighStock extends React.Component {
     // debugger
 
     let alpha = require("alphavantage")({ key: "RU8WOMPG1N11NB3L" });
-    alpha.data.intraday(this.props.selectedStockId).then(data => {
+    alpha.data.daily(this.props.selectedStockId).then(data => {
       let stock = alpha.util.polish(data);
 
       let stockChartData = [];
@@ -38,15 +38,32 @@ class HighStock extends React.Component {
         const newDate = new Date(key).getTime();
         thisChartData.push(newDate);
         thisChartData.push(parseFloat(stock.data[key].open));
+        // thisChartData.push(parseFloat(stock.data[key].high));
+        // thisChartData.push(parseFloat(stock.data[key].low));
+        // thisChartData.push(parseFloat(stock.data[key].close));
         stockChartData.push(thisChartData);
       }
 
       this.setState({
+        
         stockChartData: stockChartData
       });
     });
   }
   render() {
+    // debugger
+
+     let groupingUnits = [
+       [
+         "day", // unit name
+         [1] // allowed multiples
+       ],
+       ["month", [1, 2, 3, 4, 6]]
+     ];
+
+
+
+
     const options = {
       rangeSelector: {
         selected: 1
@@ -57,12 +74,34 @@ class HighStock extends React.Component {
       },
 
       xAxis: {
-        type: "datetime",
-        labels: {
-          format: "{value:%HH:%MM}"
-        }
+        type: "datetime"
       },
-      series: [{ data: this.state.stockChartData }]
+      // yAxis: [
+      //   {
+      //     labels: {
+      //       align: "right",
+      //       x: -3
+      //     },
+      //     title: {
+      //       text: "OHLC"
+      //     },
+      //     height: "60%",
+      //     lineWidth: 2,
+      //     resize: {
+      //       enabled: true
+      //     }
+      //   }
+      // ],
+
+      series: [
+        {
+          // type: "candlestick",
+          data: this.state.stockChartData,
+          dataGrouping: {
+            units: groupingUnits
+          }
+        }
+      ]
     };
 
     return (
