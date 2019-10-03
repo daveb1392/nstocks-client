@@ -71,7 +71,7 @@ class MainContainer extends Component {
 
   componentDidMount() {
     this.fetchStocks();
-    // setInterval(this.fetchStocks, 120000)
+    setInterval(this.fetchStocks, 60000)
     this.fetchEconomicNews();
     // this.fetchEconomicNews();
   }

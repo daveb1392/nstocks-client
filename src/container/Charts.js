@@ -16,7 +16,9 @@ class Chart extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (this.props.selectedStockId !== prevProps.selectedStockId) {
+      setInterval(this.fetchNewStock, 60000);
       return this.fetchNewStock();
+      
     }
     //  return this.fetchStock()
   }
@@ -25,7 +27,7 @@ class Chart extends React.Component {
     const pointerToThis = this;
     let stockChartXValuesFunction = [];
     let stockChartYValuesFunction = [];
-    let alpha = require("alphavantage")({ key: "RU8WOMPG1N11NB3L" });
+    let alpha = require("alphavantage")({ key: "JX1IQ4YRJ08F9F68" });
     alpha.data
       .intraday(this.props.selectedStockId, `compact`, 60)
       .then(data => {
