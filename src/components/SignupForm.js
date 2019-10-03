@@ -28,7 +28,7 @@ class SignupForm extends React.Component {
       <Grid centered columns={2}>
         <Grid.Column>
           <Header as="h2" textAlign="center">
-            Login
+            Sign Up
           </Header>
           <Segment>
             <Form
@@ -53,7 +53,7 @@ class SignupForm extends React.Component {
                 type="password"
               />
               <Button color="blue" fluid size="large">
-                Login
+                Sign Up 
               </Button>
             </Form>
           </Segment>

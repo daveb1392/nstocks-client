@@ -3,8 +3,12 @@ import ReactDOM from "react-dom";
 import Draggable from "react-draggable";
 import Chart from "./Charts"
 import TableTest from "../components/TableTest";
+import Bloomberg from "../components/Bloomberg"
+import NewChart from "./NewChart";
 import NewsContainer from "./NewsContainer";
 import News from "../components/News";
+import {Container} from "semantic-ui-react"
+import HighStock from "./NewChart";
 
 
 class ComponentDrag extends React.Component {
@@ -66,40 +70,45 @@ class ComponentDrag extends React.Component {
     const dragHandlers = {onStart: this.onStart, onStop: this.onStop};
     const {deltaPosition, controlledPosition} = this.state;
     return (
-      <div>
-        <Draggable {...dragHandlers}>
-          <div className="box">
-              
-            <Chart 
-            selectedStockId={this.props.selectedStockId} />
-           
-            {/* <News news={this.props.news.articles} /> */}
-          
-          </div>
-        </Draggable>
-        <Draggable {...dragHandlers}>
-          <div className="box">
-            
+      <>
+        <Draggable bounds="parent" handle="strong" {...dragHandlers}>
+          <div className="box no-cursor">
+            <strong className="cursor">
+              <div>Drag me Around</div>
+            </strong>
             <TableTest
               stocks={this.props.stocks}
               handleChart={this.props.handleChart}
             />
-           
-            {/* <News news={this.props.news.articles} /> */}
           </div>
         </Draggable>
-      </div>
-
-      //     <Draggable bounds="body" {...dragHandlers}>
-      //     <div className="box">
-      //       <Chart selectedStockId={this.props.selectedStockId} />
-      //       <TableTest
-      //         stocks={this.props.stocks}
-      //         handleChart={this.props.handleChart}
-      //       />
-      //       {/* <News news={this.props.news.articles} /> */}
-      //     </div>
-      //   </Draggable>
+        <Draggable handle="strong" {...dragHandlers}>
+          <div className="box no-cursor">
+            <strong className="cursor">
+              <div>Drag me Around</div>
+            </strong>
+            <Chart selectedStockId={this.props.selectedStockId} />
+          </div>
+        </Draggable>
+        <Draggable handle="strong" {...dragHandlers}>
+          <div className="box no-cursor">
+            <strong className="cursor">
+              <div>Bloomberg Live</div>
+            </strong>
+            <Bloomberg />
+          </div>
+        </Draggable>
+        <Draggable handle="strong" {...dragHandlers}>
+          <div className="box">
+            <strong className="cursor">
+              <div>Daily Chart</div>
+            </strong>
+            <div className="chart">
+              <HighStock selectedStockId={this.props.selectedStockId} />
+            </div>
+          </div>
+        </Draggable>
+      </>
     );
 }
 }

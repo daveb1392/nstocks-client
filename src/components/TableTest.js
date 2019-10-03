@@ -69,7 +69,7 @@ class TableTest extends Component {
   }
 
   render() {
-    debugger;
+    // debugger;
     return (
       <div className="grid-wrapper style">
         <div
@@ -79,7 +79,6 @@ class TableTest extends Component {
             width: "600px"
           }}
         >
-          {" "}
           {!this.props.stocks ? (
             <FlowerSpinner />
           ) : (

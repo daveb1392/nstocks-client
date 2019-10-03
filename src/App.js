@@ -7,6 +7,7 @@ import SignupForm from "./components/SignupForm.js";
 import Login from "./components/Login.js";
 import "react-grid-layout/css/styles.css";
 import "react-resizable/css/styles.css";
+import FooterPage from "./components/Footer"
 import {Helmet} from 'react-helmet';
 // import "react-grid-layout/css/styles.css";
 
@@ -49,9 +50,9 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Helmet>
+        {/* <Helmet>
           <style>{"body { background-color: grey; }"}</style>
-        </Helmet>
+        </Helmet> */}
         <Navbar user={this.state.user} logOut={this.logOut} />
 
         <Route
@@ -69,6 +70,7 @@ class App extends React.Component {
             <SignupForm {...props} handleSubmit={this.signUp} />
           )}
         />
+        <FooterPage />
       </div>
     );
   }
