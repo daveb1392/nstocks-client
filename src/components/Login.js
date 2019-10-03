@@ -25,29 +25,8 @@ class Login extends React.Component {
 
   render() {
     return (
-      //   <Form onSubmit={() => this.props.handleSubmit(this.state)}>
-      //       <Form.Field>
-      //       <label>Email</label>
-      //       <input
-      //         value={this.state.email}
-      //         onChange={this.handleChangeEmail}
-      //         placeholder="Email"
-      //       />
-      //     </Form.Field>
-      //     <Form.Field>
-      //       <label>Password</label>
-      //       <input
-      //         type="password"
-      //         value={this.state.password}
-      //         onChange={this.handleChangePassword}
-      //         placeholder="Password"
-      //       />
-      //     </Form.Field>
-      //     <Button type="submit">Login</Button>
-      //   </Form>
-      // );
-      <Grid centered columns={2}>
-        <Grid.Column>
+      <Grid centered columns={2} style={{height: '100vh'}}>
+        <Grid.Column >
           <Header as="h2" textAlign="center">
             Login
           </Header>

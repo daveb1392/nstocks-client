@@ -95,6 +95,10 @@ text-align: center;
       width: 900px;
     }
 
+    .login{
+      height: 100%;
+    }
+
     /* .react-grid-layout {
   position: relative;
   transition: height 200ms ease;
@@ -184,4 +188,9 @@ text-align: center;
 .row {
   margin-left: 15px;
   margin-right: 15px;
+}
+
+
+.ui.centered.two.column.grid.login{
+  height: 100%;
 }

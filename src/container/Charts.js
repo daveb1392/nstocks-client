@@ -26,7 +26,7 @@ class Chart extends React.Component {
     let stockChartXValuesFunction = [];
     let stockChartYValuesFunction = [];
     let alpha = require("alphavantage")({ key: "RU8WOMPG1N11NB3L" });
-    alpha.data.intraday(this.props.selectedStockId).then(data => {
+    alpha.data.daily(this.props.selectedStockId).then(data => {
       let x = alpha.util.polish(data);
       console.log(x);
       for (let key in x.data) {
@@ -104,7 +104,7 @@ class Chart extends React.Component {
   render() {
     return (
       <div>
-        <h1>Trend</h1>
+       
         <Plot
           data={[
             {
