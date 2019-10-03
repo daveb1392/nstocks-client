@@ -14,9 +14,11 @@ class HighStock extends React.Component {
     };
   }
 
-  componentDidMount() {
-    this.fetchNewStock();
-    // this.fetchEconomicNews();
+  componentDidUpdate(prevProps) {
+    if (this.props.selectedStockId !== prevProps.selectedStockId) {
+      return this.fetchNewStock();
+    }
+    //  return this.fetchStock()
   }
 
   // I need to convert the date into milliseconds
@@ -25,7 +27,7 @@ class HighStock extends React.Component {
     // debugger
 
     let alpha = require("alphavantage")({ key: "RU8WOMPG1N11NB3L" });
-    alpha.data.intraday("MSFT").then(data => {
+    alpha.data.intraday(this.props.selectedStockId).then(data => {
       let stock = alpha.util.polish(data);
 
       let stockChartData = [];
@@ -46,6 +48,14 @@ class HighStock extends React.Component {
   }
   render() {
     const options = {
+      rangeSelector: {
+        selected: 1
+      },
+
+      title: {
+        text: this.props.selectedStockId
+      },
+
       xAxis: {
         type: "datetime",
         labels: {

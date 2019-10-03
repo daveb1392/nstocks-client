@@ -3,9 +3,12 @@ import ReactDOM from "react-dom";
 import Draggable from "react-draggable";
 import Chart from "./Charts"
 import TableTest from "../components/TableTest";
+import Bloomberg from "../components/Bloomberg"
+import NewChart from "./NewChart";
 import NewsContainer from "./NewsContainer";
 import News from "../components/News";
 import {Container} from "semantic-ui-react"
+import HighStock from "./NewChart";
 
 
 class ComponentDrag extends React.Component {
@@ -85,6 +88,24 @@ class ComponentDrag extends React.Component {
               <div>Drag me Around</div>
             </strong>
             <Chart selectedStockId={this.props.selectedStockId} />
+          </div>
+        </Draggable>
+        <Draggable handle="strong" {...dragHandlers}>
+          <div className="box no-cursor">
+            <strong className="cursor">
+              <div>Bloomberg Live</div>
+            </strong>
+            <Bloomberg />
+          </div>
+        </Draggable>
+        <Draggable handle="strong" {...dragHandlers}>
+          <div className="box">
+            <strong className="cursor">
+              <div>Daily Chart</div>
+            </strong>
+            <div className="chart">
+              <HighStock selectedStockId={this.props.selectedStockId} />
+            </div>
           </div>
         </Draggable>
       </>
