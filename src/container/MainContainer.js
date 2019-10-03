@@ -4,6 +4,7 @@ import Charts from "./Charts";
 import TestDrag from "./TestDrag";
 import NewsContainer from "./NewsContainer";
 import Notes from "../components/Notes"
+import FooterPage from "../components/Footer"
 import TableTest from "../components/TableTest";
 import DynamicMinMaxLayout from "./GridTest";
 import { Container, Grid } from "semantic-ui-react";
@@ -45,7 +46,7 @@ class MainContainer extends Component {
           stocks: stocks
         });
       }).catch((err) => {
-        console.log(err)
+       err.setInterval(this.fetchStocks, 60000)
       });
   };
   
@@ -69,7 +70,7 @@ class MainContainer extends Component {
 
   componentDidMount() {
     this.fetchStocks();
-    setInterval(this.fetchStocks, 120000)
+    // setInterval(this.fetchStocks, 120000)
     this.fetchEconomicNews();
     // this.fetchEconomicNews();
   }
@@ -128,11 +129,6 @@ class MainContainer extends Component {
           </Grid.Column>
           <Grid.Column width={4}>
             <Twitter />
-          </Grid.Column>
-        </Grid.Row>
-        <Grid.Row>
-          <Grid.Column width={16}>
-            Footer goes here 
           </Grid.Column>
         </Grid.Row>
       </Grid>
