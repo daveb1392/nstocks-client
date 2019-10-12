@@ -26,7 +26,7 @@ class HighStock extends React.Component {
   fetchNewStock() {
     // debugger
 
-    let alpha = require("alphavantage")({ key: "RU8WOMPG1N11NB3L" });
+    let alpha = require("alphavantage")({ key: "JX1IQ4YRJ08F9F68" });
     alpha.data.daily(this.props.selectedStockId).then(data => {
       let stock = alpha.util.polish(data);
 
