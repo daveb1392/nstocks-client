@@ -2,6 +2,10 @@
   "name": "nstocks-client",
   "version": "0.1.0",
   "private": true,
+    "engines": {
+      "npm": "5.7.1",
+      "node": "9.5.0"
+    },
   "dependencies": {
     "@babel/runtime": "^7.6.0",
     "@blueprintjs/core": "^3.18.1",
