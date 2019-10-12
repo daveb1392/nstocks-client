@@ -23,7 +23,7 @@ let Draggable = window.ReactDraggable;
 
 
 const ApiCall =
-  "https://stocknewsapi.com/api/v1/category?section=general&items=20&sortby=trending&token=fthuqovsibxdqmlovzc3v4v7zpqvos87sq5uyb0j"
+  "https://stocknewsapi.com/api/v1/category?section=general&items=20&sortby=trending&token=rgngmmekwt2qjs51aoiszjhlftltc30ujgeopbgb";
 const URL = " http://localhost:3000/stocks";
 
 class MainContainer extends Component {
@@ -46,7 +46,7 @@ class MainContainer extends Component {
           stocks: stocks
         });
       }).catch((err) => {
-       err.setInterval(this.fetchStocks, 60000)
+       setInterval(this.fetchStocks, 60000)
       });
   };
   
@@ -63,14 +63,15 @@ class MainContainer extends Component {
       .then(news => {
         console.log(news);
         this.setState({
-          news: news
+          news: news,
+          stockId: null
         });
       });
   };
 
   componentDidMount() {
     this.fetchStocks();
-    // setInterval(this.fetchStocks, 120000)
+    setInterval(this.fetchStocks, 60000)
     this.fetchEconomicNews();
     // this.fetchEconomicNews();
   }
@@ -122,6 +123,7 @@ class MainContainer extends Component {
             <NewsContainer
               news={this.state.news.data}
               selectedStockId={this.state.selected_stock_id}
+              handleClick={this.fetchEconomicNews}
             />
           </Grid.Column>
           <Grid.Column width={4}>

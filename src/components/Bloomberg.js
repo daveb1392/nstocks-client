@@ -8,8 +8,8 @@ class Bloomberg extends React.Component{
         return (
           <Iframe
             url="//oklivetv.com/xplay/4e6a4930.html"
-            width="450px"
-            height="450px"
+            width="600px"
+            height="350px"
             id="myId"
             className="myClassname"
             display="initial"

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import News from "../components/News";
-import { Card, Container, Segment, Header, Divider } from "semantic-ui-react";
+import { Card, Container, Segment, Header, Divider, Button } from "semantic-ui-react";
 
 
 const ApiCall= "`https://newsapi.org/v2/everything?q=${this.props.selectedStockId}&from=2019-09-15&sortBy=trending&apiKey=660c3463c12746e09799d80d01560e2e"
@@ -18,7 +18,7 @@ class NewsContainer extends Component {
 
   fetchStockNews = () => {
     
-    let ApiCall = `https://stocknewsapi.com/api/v1?tickers=${this.props.selectedStockId}&items=20&sortby=algo&token=fthuqovsibxdqmlovzc3v4v7zpqvos87sq5uyb0j`;
+    let ApiCall = `https://stocknewsapi.com/api/v1?tickers=${this.props.selectedStockId}&items=20&sortby=algo&token=rgngmmekwt2qjs51aoiszjhlftltc30ujgeopbgb`;
     
     fetch(ApiCall)
       .then(resp => resp.json())
@@ -47,26 +47,29 @@ class NewsContainer extends Component {
   render() {
     // debugger;
     return (
-      <div style={{overflow: 'scroll', height: '688px'}}>
+      <>
         <Segment inverted className="segment">
           <Divider horizontal inverted>
             News
           </Divider>
+          <Button primary onClick={this.props.handleClick}>Headlines</Button>
         </Segment>
-        {!this.props.selectedStockId ? (
-          <Card.Group centered>
-            {this.props.news.map(news => (
-              <News news={news} />
-            ))}
-          </Card.Group>
-        ) : (
-          <Card.Group centered>
-            {this.state.stockNews.data.map(news => (
-              <News news={news} />
-            ))}
-          </Card.Group>
-        )}
-      </div>
+        <div style={{ overflow: "scroll", height: "688px" }}>
+          {!this.props.selectedStockId ? (
+            <Card.Group centered>
+              {this.props.news.map(news => (
+                <News news={news} />
+              ))}
+            </Card.Group>
+          ) : (
+            <Card.Group centered>
+              {this.state.stockNews.data.map(news => (
+                <News news={news} />
+              ))}
+            </Card.Group>
+          )}
+        </div>
+      </>
     );
   }
 
