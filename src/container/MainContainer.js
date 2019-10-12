@@ -15,16 +15,9 @@ import { FlowerSpinner } from "react-epic-spinners";
 // import { div } from "gl-matrix/src/gl-matrix/vec3";
 
 
-
-
-
-let Draggable = window.ReactDraggable;
- const API_KEY = "V888PZNUNWFPPYH7";
-
-
 const ApiCall =
   "https://stocknewsapi.com/api/v1/category?section=general&items=20&sortby=trending&token=rgngmmekwt2qjs51aoiszjhlftltc30ujgeopbgb";
-const URL = " http://localhost:3000/stocks";
+const URL = "https://tdashoard.herokuapp.com/stocks";
 
 class MainContainer extends Component {
   state = {

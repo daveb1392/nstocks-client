@@ -5,7 +5,6 @@ import Draggable from "react-draggable";
 
 
 
-let StockSymbol = "FB";
 class Chart extends React.Component {
   // on click wanted to render charts on the other side, the chart being renderd will match the id
 

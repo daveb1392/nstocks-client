@@ -1,4 +1,4 @@
-const endpoint = "http://localhost:3000";
+const endpoint = "https://tdashoard.herokuapp.com";
 const signupURL = `${endpoint}/users`;
 const loginURL = `${endpoint}/login`;
 const validateURL = `${endpoint}/validate`;
