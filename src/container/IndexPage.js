@@ -16,22 +16,11 @@ class IndexPage extends Component {
     // debugger
     return (
       <div>
-        {this.props.user && !this.props.user.error ? (
-          <>
+       
+          
             <MainContainer />
-            {/* <DragResize /> */}
-            {/* <TVChartContainer /> */}
-            {/* <BasicLayout /> */}
-            {/* <TableTest /> */}
-            {/* <Table /> */}
-
-            {/* <Charts/> */}
-          </>
-        ) : (
-          <>
-           <Login/>
-          </>
-        )}
+       
+        
       </div>
     );
   }
