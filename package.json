@@ -2,10 +2,10 @@
   "name": "nstocks-client",
   "version": "0.1.0",
   "private": true,
-    "engines": {
-      "npm": "6.11.3",
-      "node": "12.3.0"
-    },
+  "engines": {
+    "npm": "6.11.3",
+    "node": "12.3.0"
+  },
   "dependencies": {
     "@babel/runtime": "^7.6.0",
     "@blueprintjs/core": "^3.18.1",
@@ -41,7 +41,7 @@
     "react-rainbow-components": "^1.5.0",
     "react-rnd": "^10.1.0",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "3.1.1",
+    "react-scripts": "^3.3.1",
     "react-sparklines": "^1.7.0",
     "react-stickies": "0.0.16",
     "react-timeago": "^4.4.0",
@@ -55,13 +55,10 @@
     "styled-components": "^4.4.0"
   },
   "scripts": {
-    "dev": "react-scripts start",
-    "start": "serve -s build",
+    "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "heroku-postbuild": "npm run build"
-  
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"

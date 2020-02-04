@@ -113,11 +113,11 @@ class MainContainer extends Component {
         </Grid.Row>
         <Grid.Row>
           <Grid.Column width={8}>
-            <NewsContainer
+            {/* <NewsContainer
               news={this.state.news.data}
               selectedStockId={this.state.selected_stock_id}
               handleClick={this.fetchEconomicNews}
-            />
+            /> */}
           </Grid.Column>
           <Grid.Column width={4}>
             <Notes />
