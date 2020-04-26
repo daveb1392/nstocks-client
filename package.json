@@ -20,6 +20,7 @@
     "highcharts": "^7.2.0",
     "highcharts-react-official": "^2.2.2",
     "mdbreact": "^4.20.0",
+    "node": "^14.0.0",
     "plotly.js": "^1.49.5",
     "prop-types": "^15.7.2",
     "react": "^16.10.1",
